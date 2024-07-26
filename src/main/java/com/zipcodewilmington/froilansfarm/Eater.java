@@ -2,10 +2,12 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public interface Eater<T extends Edible> {
+public interface Eater<T> {
 
-    ArrayList<Edible> foodsEaten = new ArrayList<>();
+   //ArrayList<Edible> foodsEaten = new ArrayList<>();
 
-    void eat(Edible edible);
+    void eat(T food);
+    ArrayList<T> getFoods();
+   //void storeFood();
 
 }
