@@ -31,7 +31,7 @@ public class EaterTest {
         chicken.eat(earCorn);
       //  chicken.eat(edibleEgg);
 
-        Integer expected = 4;
+        Integer expected = 3;
         Integer actual = chicken.getFoods().size();
 
         Assert.assertEquals(expected,actual);

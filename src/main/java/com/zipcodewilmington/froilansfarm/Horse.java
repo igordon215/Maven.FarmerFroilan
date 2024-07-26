@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public class Horse extends Animal {
+public class Horse extends Animal implements Rideable {
     private ArrayList<Vegetable>foodsEaten = new ArrayList<>();
 
 
@@ -17,4 +17,8 @@ public class Horse extends Animal {
         return this.foodsEaten;
     }
 
+    @Override
+    public String makeNoise() {
+        return "Neigh!";
+    }
 }
