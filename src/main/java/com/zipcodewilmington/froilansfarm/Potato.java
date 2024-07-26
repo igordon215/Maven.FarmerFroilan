@@ -1,4 +1,5 @@
 package com.zipcodewilmington.froilansfarm;
 
-public interface Edible {
+public class Potato extends Vegetable {
+
 }
