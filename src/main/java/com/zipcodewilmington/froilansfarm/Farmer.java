@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Farmer implements Rider{
+public class Farmer implements Rider, Botanist{
 
     @Override
     public String mount(Rideable rideable) {
@@ -26,5 +26,10 @@ public class Farmer implements Rider{
         } else {
             return "This animal cannot be ridden.";
         }
+    }
+
+    @Override
+    public void plant(Crop crop, CropRow row) {
+        row.add(crop);
     }
 }
