@@ -14,4 +14,9 @@ public class Person<T extends Eater> implements Eater<Edible>, NoiseMaker{
     public ArrayList<Edible> getFoods() {
         return foodEaten;
     }
+
+    @Override
+    public String makeNoise() {
+        return "Hello!";
+    }
 }
