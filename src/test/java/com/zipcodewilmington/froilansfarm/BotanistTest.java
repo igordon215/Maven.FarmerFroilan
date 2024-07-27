@@ -9,8 +9,11 @@ public class BotanistTest {
     public void farmerIsBotanist() {
         Farmer farmer = new Farmer();
         boolean results = farmer instanceof Botanist;
+//        boolean results = farmer instanceof Person;
         Assert.assertTrue(results);
     }
+
+
 
     @Test
     public void farmerPlantTest() {

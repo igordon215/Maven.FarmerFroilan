@@ -88,6 +88,15 @@ public class CropTest {
         Assert.assertFalse(results);
     }
 
+    @Test
+    public void setCropFertilizationTest(){
+        Crop stalk = new CornStalk();
+        stalk.setHasBeenFertilized(true);
+        Boolean actual = stalk.hasBeenFertilized;
+        Assert.assertTrue(actual);
+    }
+
+
 
 
 
