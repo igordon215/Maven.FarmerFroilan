@@ -6,4 +6,9 @@ public class Tractor extends FarmVehicle {
     public String makeNoise() {
         return "Vroom vroom!";
     }
+
+    @Override
+    public String operate(Farm farm) {
+        return "currently operating in tractor Farm";
+    }
 }
