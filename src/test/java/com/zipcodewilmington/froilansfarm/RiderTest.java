@@ -58,6 +58,15 @@ public class RiderTest {
         String actual = bob.mount(chick);
         String expected = "This animal cannot be ridden.";
         Assert.assertEquals(actual,expected);
+    }
+
+    @Test
+    public void riderMountTractorTest(){
+        Farmer bob = new Farmer();
+        Tractor tractor = new Tractor();
+        String actual = bob.mount(tractor);
+        String expected = "Successfully mounted!";
+        Assert.assertEquals(actual, expected);
 
     }
 
