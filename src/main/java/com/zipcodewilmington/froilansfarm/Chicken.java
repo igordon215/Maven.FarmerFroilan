@@ -5,20 +5,12 @@ import java.util.ArrayList;
 public class Chicken extends Animal implements Produce<Edible> {
     private ArrayList<Vegetable>foodsEaten = new ArrayList<>();
 
-    public boolean isHasBeenFertilized() {
-        return hasBeenFertilized;
-    }
-
     public void setHasBeenFertilized(boolean hasBeenFertilized) {
         this.hasBeenFertilized = hasBeenFertilized;
     }
 
     private boolean hasBeenFertilized = true;
 
-//    @Override
-//    public void eat(T food) {
-//        foodsEaten.add(food);
-//    }
 
     @Override
     public void eat(Vegetable food) {

@@ -1,24 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
 public class TomatoPlant extends Crop {
-//    private boolean isFertilized = false;
-//    private boolean isHarvested = false;
-//
-//    public boolean isFertilized() {
-//        return isFertilized;
-//    }
-//
-//    public void setFertilized(boolean fertilized) {
-//        isFertilized = fertilized;
-//    }
-//
-//    public boolean isHarvested() {
-//        return isHarvested;
-//    }
-//
-//    public void setHarvested(boolean harvested) {
-//        isHarvested = harvested;
-//    }
 
     @Override
     boolean hasBeenFertilized() {
@@ -29,5 +11,16 @@ public class TomatoPlant extends Crop {
     @Override
     boolean hasBeenHarvested() {
         return this.hasBeenHarvested;
+    }
+
+    @Override
+    public Edible yield() {
+        if ((this.hasBeenFertilized) && (this.hasBeenHarvested)) {
+            System.out.println("Here's a tomato for you!");
+            return new Tomato();
+        } else {
+            System.out.println("Not harvested and/or fertilized yet.");
+            return null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Farmer implements Rider, Botanist{
+public class Farmer extends Person implements Rider, Botanist{
 
     @Override
     public String mount(Rideable rideable) {
