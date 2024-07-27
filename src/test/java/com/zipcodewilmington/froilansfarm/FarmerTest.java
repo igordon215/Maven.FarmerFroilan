@@ -33,6 +33,22 @@ public class FarmerTest {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void pilotCanFlyAircraftTest(){
+        Pilot sally = new Pilot();
+        CropDuster duster = new CropDuster();
+        String expected = "Im flying a cropDuster!";
+        String actual = sally.fly(duster);
+        Assert.assertEquals(actual,expected);
+    }
+
+    @Test
+    public void farmerIsPilotTest(){
+        Pilot sally = new Pilot();
+        Boolean actual = sally instanceof Farmer;
+        Assert.assertTrue(actual);
+    }
+
 
 
 
