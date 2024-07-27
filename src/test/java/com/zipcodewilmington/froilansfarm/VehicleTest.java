@@ -56,6 +56,18 @@ public class VehicleTest {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void farmVehiclecanOperateOnAFarm(){
+        Tractor tractor = new Tractor();
+        Farm farm = new Farm();
+        String results = tractor.operate(farm);
+
+        Assert.assertEquals("currently operating in tractor Farm", results);
+    }
+
+
+
+
 
 
 

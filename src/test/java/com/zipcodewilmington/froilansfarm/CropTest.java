@@ -34,5 +34,68 @@ public class CropTest {
         Assert.assertEquals(expected,actual);
     }
 
+    @Test
+    public void toggleFertilizeCropTest(){
+        TomatoPlant crop = new TomatoPlant();
+        crop.setHasBeenFertilized(true);
+        boolean results = crop.hasBeenFertilized();
+        Assert.assertTrue(results);
+
+    }
+    @Test
+    public void cornStalkisAninstanceOfCropTest(){
+        CornStalk crop = new CornStalk();
+        boolean results = crop instanceof Crop;
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void testCropIsFertilizedMethod(){
+        TomatoPlant crop = new TomatoPlant();
+        CornStalk cornStalk = new CornStalk();
+        crop.setHasBeenFertilized(true);
+        cornStalk.setHasBeenFertilized(true);
+        boolean results = cornStalk.hasBeenFertilized();
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void testCropIsHarvestedMethod(){
+        TomatoPlant crop = new TomatoPlant();
+        CornStalk cornStalk = new CornStalk();
+        crop.setHasBeenHarvested(true);
+        cornStalk.setHasBeenHarvested(true);
+        crop.setHasBeenHarvested(false);
+        boolean results = cornStalk.hasBeenHarvested();
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void testGeneralCropIsHarvestedMethod(){
+        Crop crop = new TomatoPlant();
+        Crop cornStalk = new CornStalk();
+        crop.setHasBeenHarvested(true);
+        cornStalk.setHasBeenHarvested(true);
+        crop.setHasBeenHarvested(false);
+        boolean results = cornStalk.hasBeenHarvested();
+        Assert.assertTrue(results);
+    }
+    @Test
+    public void testCropIsFertilizedDefaultsToFalse(){
+        Crop crop = new TomatoPlant();
+        Crop cornStalk = new CornStalk();
+       boolean results = crop.hasBeenFertilized;
+        Assert.assertFalse(results);
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
