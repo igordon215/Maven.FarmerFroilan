@@ -2,7 +2,7 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public class Field extends ArrayList<CropRow> {
+public class Field extends ArrayList<CropRow> implements Storage {
 
 
 }

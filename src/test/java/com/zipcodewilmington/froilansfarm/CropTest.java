@@ -13,11 +13,28 @@ public class CropTest {
     }
 
     @Test
+    public void potatoPlantIsACropTest() {
+        PotatoPlant potato = new PotatoPlant();
+        boolean results = potato instanceof Crop;
+        Assert.assertTrue(results);
+    }
+
+
+
+    @Test
     public void cropRowContainsCropTest(){
         CropRow tomatoRow = new CropRow();
         TomatoPlant tomato = new TomatoPlant();
         tomatoRow.add(tomato);
         boolean result = tomatoRow.contains(tomato);
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void cropRowContainsPotatoCropTest(){
+        CropRow potatoRow= new CropRow();
+        PotatoPlant potato = new PotatoPlant();
+        potatoRow.add(potato);
+        boolean result = potatoRow.contains(potato);
         Assert.assertTrue(result);
     }
 
@@ -59,6 +76,7 @@ public class CropTest {
         Assert.assertTrue(results);
     }
 
+
     @Test
     public void testCropIsHarvestedMethod(){
         TomatoPlant crop = new TomatoPlant();
@@ -67,6 +85,14 @@ public class CropTest {
         cornStalk.setHasBeenHarvested(true);
         crop.setHasBeenHarvested(false);
         boolean results = cornStalk.hasBeenHarvested();
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void testTomatoPlantHarvestedMethod(){
+        TomatoPlant crop = new TomatoPlant();
+        crop.setHasBeenHarvested(true);
+        boolean results = crop.hasBeenHarvested();
         Assert.assertTrue(results);
     }
 
@@ -80,6 +106,7 @@ public class CropTest {
         boolean results = cornStalk.hasBeenHarvested();
         Assert.assertTrue(results);
     }
+
     @Test
     public void testCropIsFertilizedDefaultsToFalse(){
         Crop crop = new TomatoPlant();
@@ -97,7 +124,35 @@ public class CropTest {
     }
 
 
+    @Test
+    public void potatoPlantHasBeenFertilizedTest(){
+        Crop crop = new PotatoPlant();
+        crop.setHasBeenFertilized(true);
+        boolean results = crop.hasBeenFertilized;
+        Assert.assertTrue(results);
+    }
 
+    @Test
+    public void potatoPlantHasBeenHarvestedTest(){
+        Crop crop = new PotatoPlant();
+        crop.setHasBeenHarvested(true);
+        boolean results = crop.hasBeenHarvested;
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void potatoPlantDefaultFalseHarvestedTest(){
+        Crop crop = new PotatoPlant();
+        boolean results = crop.hasBeenHarvested;
+        Assert.assertFalse(results);
+    }
+
+    @Test
+    public void potatoPlantDefaultFalseFertilizedTest(){
+        Crop crop = new PotatoPlant();
+        boolean results = crop.hasBeenFertilized;
+        Assert.assertFalse(results);
+    }
 
 
 

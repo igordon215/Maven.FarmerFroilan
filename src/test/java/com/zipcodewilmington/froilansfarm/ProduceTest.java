@@ -24,6 +24,26 @@ public class ProduceTest {
     }
 
     @Test
+    public void potatoCanYieldTest(){
+       PotatoPlant potatoPlant = new PotatoPlant();
+        potatoPlant.setHasBeenHarvested(true);
+        potatoPlant.setHasBeenFertilized(true);
+        Edible yieledVegetable = potatoPlant.yield();
+        boolean results = yieledVegetable instanceof Potato;
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void potatoCanNotYieldTest(){
+        PotatoPlant potatoPlant = new PotatoPlant();
+        potatoPlant.setHasBeenHarvested(false);
+        potatoPlant.setHasBeenFertilized(true);
+        Edible yieledVegetable = potatoPlant.yield();
+        boolean results = yieledVegetable instanceof Potato;
+        Assert.assertFalse(results);
+    }
+
+    @Test
     public void tomatoCannotYieldTest(){
         TomatoPlant tomatoPlant = new TomatoPlant();
         Edible yieledVegetable = tomatoPlant.yield();
@@ -65,5 +85,13 @@ public class ProduceTest {
         boolean result = actual instanceof EdibleEgg;
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void potatoPlantIsProduceTest(){
+        Crop crop = new PotatoPlant();
+        boolean actual = crop instanceof Produce;
+        Assert.assertTrue(actual);
+    }
+
 
 }

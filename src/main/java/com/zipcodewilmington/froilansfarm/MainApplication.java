@@ -5,16 +5,9 @@ package com.zipcodewilmington.froilansfarm;
  */
 public class MainApplication {
 
+    public static void main(String[] args) {
 
-    //Josue in the building
-    //line 2 from Josue
-
-    //Josue testing 1,2,3,...
-// mohammed made this change
-
-
-
-    //JOSUES FINAL PR!!!!
+    }
 
 }
 
