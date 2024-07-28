@@ -50,6 +50,19 @@ public class CropTest {
         int actual = tomatoRow.size();
         Assert.assertEquals(expected,actual);
     }
+    @Test
+    public void addPotatoPlantToCropRowTest(){
+        PotatoPlant crop = new PotatoPlant();
+        CropRow potatoRow = new CropRow();
+        CropRow cornRow = new CropRow();
+        potatoRow.add(crop);
+        potatoRow.add(crop);
+        potatoRow.add(crop);
+        int expected = 3;
+        int actual = potatoRow.size();
+        Assert.assertEquals(expected,actual);
+    }
+
 
     @Test
     public void toggleFertilizeCropTest(){
@@ -59,6 +72,25 @@ public class CropTest {
         Assert.assertTrue(results);
 
     }
+
+    @Test
+    public void toggleFertilizePotatoPlantTest(){
+        PotatoPlant crop = new PotatoPlant();
+        crop.setHasBeenFertilized(true);
+        boolean results = crop.hasBeenFertilized();
+        Assert.assertTrue(results);
+    }
+
+    @Test
+    public void toggleHarvestPotatoPlantTest(){
+        PotatoPlant crop = new PotatoPlant();
+        crop.setHasBeenHarvested(true);
+        boolean results = crop.hasBeenHarvested();
+        Assert.assertTrue(results);
+    }
+
+
+
     @Test
     public void cornStalkisAninstanceOfCropTest(){
         CornStalk crop = new CornStalk();
