@@ -49,6 +49,24 @@ public class FarmerTest {
         Assert.assertTrue(actual);
     }
 
+    @Test
+    public void getPilotName(){
+        Pilot sally = new Pilot("sally");
+        String name = "sally";
+        String actual = sally.name;
+        Assert.assertEquals(name, actual);
+    }
+
+    @Test
+    public void getFarmerName(){
+        Farmer sally = new Farmer("sally");
+        String name = "sally";
+        String actual = sally.name;
+        Assert.assertEquals(name, actual);
+    }
+
+
+
 
 
 
