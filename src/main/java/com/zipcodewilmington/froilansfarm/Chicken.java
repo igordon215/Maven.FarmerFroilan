@@ -14,7 +14,9 @@ public class Chicken extends Animal implements Produce<Edible> {
 
     @Override
     public void eat(Vegetable food) {
+
         foodsEaten.add(food);
+
     }
 
     @Override
@@ -31,10 +33,10 @@ public class Chicken extends Animal implements Produce<Edible> {
     @Override
     public Edible yield() {
         if(!this.hasBeenFertilized) {
-            System.out.println("You get an edible egg!");
+//            System.out.println("You get an edible egg!");
             return new EdibleEgg();
         }
-        System.out.println("No edible egg for you.");
+//        System.out.println("No edible egg for you.");
         return null;
     }
 }

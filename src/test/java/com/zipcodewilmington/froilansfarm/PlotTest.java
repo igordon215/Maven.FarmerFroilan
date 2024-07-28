@@ -65,6 +65,14 @@ public class PlotTest {
         Assert.assertEquals(actual,expected);
     }
 
+    @Test
+    public void fullWeekCompletedTest(){
+        Week week = new Week();
+        String expected = "Full week completed.";
+        String actual = week.runFullWeek();
+        Assert.assertEquals(expected,actual);
+    }
+
 
 
 

@@ -14,7 +14,11 @@ public class TuesdayTest {
         plot.froilan.plant(new CornStalk(), plot.cornRow);
         plot.froilan.plant(new TomatoPlant(), plot.tomatoRow);
         plot.froilan.plant(new PotatoPlant(), plot.potatoRow);
-        tractor.operate(plot.froilansFarm);
+//        tractor.operate(plot.froilansFarm);
+//
+        plot.froilanUsesTractor();
+
+
         for (CropRow cropRow : plot.froilansFarmField) {
             for (Crop crop : cropRow) {
                 tractor.harvest(crop);
