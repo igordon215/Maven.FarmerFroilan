@@ -8,6 +8,14 @@ public class Plot {
    public Farm froilansFarm;
    public FarmHouse farmHouse;
    public Field froilansFarmField;
+   public ChickenCoop chickenCoop;
+   public ChickenCoop chickenCoop1;
+   public ChickenCoop chickenCoop2;
+   public ChickenCoop chickenCoop3;
+   public Stable stable;
+   public Stable stable1;
+   public Stable stable2;
+
 
     public Farmer createNewFarmer(String farmersName){
         return new Farmer(farmersName);
@@ -15,12 +23,12 @@ public class Plot {
     public Pilot createNewPilot(String pilotName){
         return new Pilot(pilotName);
     }
-    public FarmHouse addToFarmHouse(Farmer farmer){
+    public void addToFarmHouse(Farmer farmer){
         farmHouse.add(farmer);
     }
-    public Field addCropRowToFroilandsFarmField(CropRow cropRow){
-        froilansFarmField.add(cropRow);
-    }
+//    public void addCropRowToFroilandsFarmField(CropRow cropRow){
+//        froilansFarmField.add(cropRow);
+//    }
 
     public void adding5CropRowsToField(){
         CropRow cornRow = new CropRow();
@@ -37,24 +45,11 @@ public class Plot {
        // System.out.println(froilansFarmField.size());
     }
 
-   public void setUp() {
-         Farmer froilan = createNewFarmer("Froilan");
-         Pilot froilanda = createNewPilot("Froilanda");
-
-        froilansFarm = new Farm();
-        farmHouse = new FarmHouse();
-        addToFarmHouse(froilan);
-        addToFarmHouse(froilanda);
-        // Froilans Farm :
-        froilansFarmField = new Field();
-        adding5CropRowsToField();
-
-
-
-        ChickenCoop chickenCoop = new ChickenCoop();
-        ChickenCoop chickenCoop1 = new ChickenCoop();
-        ChickenCoop chickenCoop2 = new ChickenCoop();
-        ChickenCoop chickenCoop3 = new ChickenCoop();
+    public void adding15ChickensTo4Coops(){
+        chickenCoop = new ChickenCoop();
+        chickenCoop1 = new ChickenCoop();
+        chickenCoop2 = new ChickenCoop();
+        chickenCoop3 = new ChickenCoop();
         for(int i =0; i< 3; i++){
             chickenCoop.add(new Chicken());
             chickenCoop1.add(new Chicken());
@@ -63,23 +58,21 @@ public class Plot {
         for(int i =0 ; i <6; i++){
             chickenCoop3.add(new Chicken());
         }
+    }
 
-        Stable stable = new Stable();
-        Stable stable1 = new Stable();
-        Stable stable2 = new Stable();
+    public void adding10HorsesTo3Stables(){
+        stable = new Stable();
+        stable1 = new Stable();
+        stable2 = new Stable();
         for(int i=0; i< 3; i++){
             stable.add(new Horse());
             stable1.add(new Horse());
             stable2.add(new Horse());
         }
         stable2.add(new Horse());
+    }
 
-
-        FarmVehicle tractor = new Tractor();
-        FarmVehicle tractor2 = new Tractor();
-
-        AirCraft cropDuster = new CropDuster();
-
+    public void addToFroilanFarm(){
         froilansFarm.add(froilansFarmField);
         froilansFarm.add(chickenCoop);
         froilansFarm.add(chickenCoop1);
@@ -89,15 +82,36 @@ public class Plot {
         froilansFarm.add(stable1);
         froilansFarm.add(stable2);
         froilansFarm.add(farmHouse);
-}
-    public void run(){
-
     }
 
+   public void setUp() {
+        //Initializing People
+        Farmer froilan = createNewFarmer("Froilan");
+        Pilot froilanda = createNewPilot("Froilanda");
+        froilansFarm = new Farm();
+        farmHouse = new FarmHouse();
+        addToFarmHouse(froilan);
+        addToFarmHouse(froilanda);
+        // Froilan's Farm :
+        froilansFarmField = new Field();
+        adding5CropRowsToField();
+        adding15ChickensTo4Coops();
+        adding10HorsesTo3Stables();
+        addToFroilanFarm();
+        //Initializing Vehicles
+        FarmVehicle tractor = new Tractor();
+        FarmVehicle tractor2 = new Tractor();
+        AirCraft cropDuster = new CropDuster();
+    }
 
-
-
+//    public void run(){
+//    }
 }
+
+
+
+
+
 
 
 //
