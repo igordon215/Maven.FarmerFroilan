@@ -11,4 +11,9 @@ public class Tractor extends FarmVehicle {
     public String operate(Farm farm) {
         return "currently operating in tractor Farm";
     }
+
+    public void harvest(Crop crop) {
+        crop.setHasBeenHarvested(true);
+    }
+
 }
