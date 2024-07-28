@@ -5,10 +5,10 @@ package com.zipcodewilmington.froilansfarm;
  */
 public class MainApplication {
 
-//    public static void main(String[] args) {
-//      Plot plot= new Plot();
-//      plot.run();
-//    }
+    public static void main(String[] args) {
+      Week fullWeek = new Week();
+      fullWeek.runFullWeek();
+    }
 
 }
 

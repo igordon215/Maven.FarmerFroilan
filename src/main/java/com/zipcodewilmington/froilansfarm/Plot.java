@@ -22,6 +22,7 @@ public class Plot {
     public CropRow potatoRow;
     public CropRow potatoRow2;
     public CropRow cornRow2;
+    public ArrayList<Edible> eggCarton = new ArrayList<>();
 
     public Farmer createNewFarmer(String farmersName) {
         return new Farmer(farmersName);
@@ -111,6 +112,264 @@ public class Plot {
         FarmVehicle tractor2 = new Tractor();
         AirCraft cropDuster = new CropDuster();
     }
+
+     /*
+    Make methods For:
+    -morning routine
+    -froilan riding horses
+    -froilanda riding horses
+    -feeding all horses
+    -froilan breakfast
+    -froilanda breakfast
+    -froilan planting crops
+     */
+
+    public void morningRoutine(){
+        froilanRidingHorses();
+        froilandaRidingHorses();
+        feedingAllHorses();
+        froilanEatsBreakfast();
+        froilandaEatsBreakfast();
+        System.out.println("Froilan and Froiland morning routine complete.\n");
+    }
+
+
+    public String froilanRidingHorses(){
+        for (Animal horse : stable) {
+            froilan.mount(horse);
+            froilan.dismount(horse);
+        }
+        for (Animal horse : stable1) {
+            froilan.mount(horse);
+            froilan.dismount(horse);
+        }
+        for (Animal horse : stable2) {
+            froilan.mount(horse);
+            froilan.dismount(horse);
+        }
+        System.out.println("Froilan rode all the horses in the stables.");
+        return "Froilan rode all the horses in the stables.";
+    }
+
+    public String froilandaRidingHorses(){
+        for (Animal horse : stable) {
+            froilanda.mount(horse);
+            froilanda.dismount(horse);
+        }
+        for (Animal horse : stable1) {
+            froilanda.mount(horse);
+            froilanda.dismount(horse);
+        }
+        for (Animal horse : stable2) {
+            froilanda.mount(horse);
+            froilanda.dismount(horse);
+        }
+        System.out.println("Froilanda rode all the horses in the stables.");
+        return "Froilanda rode all the horses in the stables.";
+    }
+
+    public String feedingAllHorses(){
+        for (Animal horse : stable) {
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+        }
+        for (Animal horse : stable1) {
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+        }
+        for (Animal horse : stable2) {
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+            horse.eat(new Corn());
+        }
+        System.out.println("Froilan fed all the horses 3 ears of corn.");
+        return "Froilan fed all the horses 3 ears of corn.";
+    }
+
+    public void froilanEatsBreakfast(){
+        froilan.eat(new Corn());
+        froilan.eat(new Tomato());
+        froilan.eat(new Tomato());
+        for (int i = 0; i < 5; i++) {
+            froilan.eat(new EdibleEgg());
+        }
+        System.out.println("Froilan ate a BIG breakfast!");
+    }
+
+    public void froilandaEatsBreakfast(){
+        froilanda.eat(new Corn());
+        froilanda.eat(new Corn());
+        froilanda.eat(new Tomato());
+        for (int i = 0; i < 2; i++) {
+            froilanda.eat(new EdibleEgg());
+        }
+        System.out.println("Froilanda ate her breakfast.");
+    }
+
+    //SUNDAY ROUTINE!!!
+    public void runSunday(){
+        System.out.println(">>> Today is Sunday.");
+        morningRoutine();
+        froilandPlantingCrops();
+    }
+
+    public void froilandPlantingCrops(){
+        froilan.plant(new CornStalk(), cornRow);
+        froilan.plant(new TomatoPlant(), tomatoRow);
+        froilan.plant(new PotatoPlant(), potatoRow);
+        System.out.println("First, second, and third croprows have different crops planted! Good job, Froilan!\n");
+    }
+
+    //MONDAY ROUTINE!!!
+
+    public void runMonday(){
+        System.out.println(">>> Today is Monday.");
+        morningRoutine();
+        froilandaFlysCropDuster();
+    }
+    public void froilandaFlysCropDuster(){
+        froilan.plant(new CornStalk(), cornRow);
+        froilan.plant(new TomatoPlant(), tomatoRow);
+        froilan.plant(new PotatoPlant(), potatoRow);
+        froilanda.fly(new CropDuster());
+        for (CropRow cropRow : froilansFarmField) {
+            for (Crop crop : cropRow) {
+                crop.setHasBeenFertilized(true);
+            }
+        }
+        System.out.println("Froilanda flew the CropDuster and fertilized all croprows within the field! Nice flying!\n");
+    }
+
+    //TUESDAY ROUTINE!!!
+    public void runTuesday(){
+        System.out.println(">>> Today is Tuesday.");
+        morningRoutine();
+        froilanUsesTractor();
+    }
+
+    public void froilanUsesTractor() {
+        Tractor tractor = new Tractor();
+        froilan.plant(new CornStalk(), cornRow);
+        froilan.plant(new TomatoPlant(), tomatoRow);
+        froilan.plant(new PotatoPlant(), potatoRow);
+        tractor.operate(froilansFarm);
+        for (CropRow cropRow : froilansFarmField) {
+            for (Crop crop : cropRow) {
+                tractor.harvest(crop);
+            }
+        }
+        System.out.println("Froilan harvests every crop on the field! Nice tractor-ing!\n");
+    }
+
+    //WEDNESDAY ROUTINE!!!
+    public void runWednesday(){
+        System.out.println(">>> Today is Wednesday.");
+        morningRoutine();
+        chickensYieldEggs();
+    }
+    public void chickensYieldEggs(){
+        for (Chicken chicken : chickenCoop2){
+            chicken.setHasBeenFertilized(false);
+            Edible egg = chicken.yield();
+            if (!(egg == null)) {
+                eggCarton.add(egg);
+            }
+        }
+        System.out.println("Some chickens laid eggs! Let's store them in the egg carton!\n");
+    }
+
+    //THURSDAY ROUTINE!!!
+    public void runThursday(){
+        System.out.println(">>> Today is Thursday.");
+        morningRoutine();
+        froilanEatsEggCarton();
+    }
+    public void froilanEatsEggCarton(){
+        for (Chicken chicken : chickenCoop2){
+            chicken.setHasBeenFertilized(false);
+            Edible egg = chicken.yield();
+            if (!(egg == null)) {
+                eggCarton.add(egg);
+            }
+        }
+        for (Edible egg : eggCarton){
+            froilan.eat(egg);
+        }
+        eggCarton.clear();
+        System.out.println("Froilan, you greedy farmer, you ate the whole egg carton!\n");
+    }
+    //FRIDAY ROUTINE!!!
+    public void runFriday(){
+        System.out.println(">>> Today is Friday.");
+        morningRoutine();
+        sallyArrivesAndRidesHorses();
+    }
+
+    public String sallyArrivesAndRidesHorses(){
+        Farmer sally = new Farmer("Sally");
+        farmHouse.add(sally);
+        System.out.println("Sally has arrived!");
+
+        for (Animal horse : stable) {
+            sally.mount(horse);
+            sally.dismount(horse);
+        }
+        for (Animal horse : stable1) {
+            sally.mount(horse);
+            sally.dismount(horse);
+        }
+        for (Animal horse : stable2) {
+            sally.mount(horse);
+            sally.dismount(horse);
+        }
+        System.out.println("Sally rode all the horses.\n");
+        return "Sally rode all the horses.\n";
+    }
+    //SATURDAY ROUTINE!!!
+    public void runSaturday(){
+        System.out.println(">>> Today is Saturday.");
+        morningRoutine();
+        sallyPlantsPotatoes();
+    }
+    public void sallyPlantsPotatoes(){
+        Farmer sally = new Farmer("Sally");
+        farmHouse.add(sally);
+
+        //Sally plants five potatoes
+        for (int i = 0; i < 5; i++) {
+            sally.plant(new PotatoPlant(), potatoRow2);
+        }
+        System.out.println("Sally plants five potato crops.\n");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    public void run(){
 //    }
