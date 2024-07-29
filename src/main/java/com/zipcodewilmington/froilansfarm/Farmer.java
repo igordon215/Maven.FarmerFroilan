@@ -1,6 +1,20 @@
 package com.zipcodewilmington.froilansfarm;
 
-public class Farmer implements Rider, Botanist{
+public class Farmer extends Person implements Rider, Botanist {
+    public Farmer(String name) {
+        super(name);
+    }
+
+    public Farmer() {
+    }
+
+    public String mount(Animal animal) {
+        if (animal instanceof Rideable) {
+            return mount((Rideable) animal);
+        } else {
+            return "This animal cannot be ridden.";
+        }
+    }
 
     @Override
     public String mount(Rideable rideable) {
@@ -12,13 +26,7 @@ public class Farmer implements Rider, Botanist{
         return "Successfully dismounted!";
     }
 
-    public String mount(Animal animal) {
-        if (animal instanceof Rideable) {
-            return mount((Rideable) animal);
-        } else {
-            return "This animal cannot be ridden.";
-        }
-    }
+
 
     public String dismount(Animal animal) {
         if (animal instanceof Rideable) {

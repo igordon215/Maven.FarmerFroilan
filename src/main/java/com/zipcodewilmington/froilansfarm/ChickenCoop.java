@@ -2,7 +2,5 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public class Field extends ArrayList<CropRow> implements Storage {
-
-
+public class ChickenCoop extends ArrayList<Chicken> implements Storage {
 }

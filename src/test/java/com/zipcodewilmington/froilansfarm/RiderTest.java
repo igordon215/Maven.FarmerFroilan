@@ -52,13 +52,36 @@ public class RiderTest {
     }
 
     @Test
+    public void riderDismountFailTest(){
+        Farmer froilan = new Farmer();
+        Animal horsey = new Chicken();
+        String expected = "This animal cannot be ridden.";
+        froilan.mount(horsey);
+        String actual = froilan.dismount(horsey);
+//        String actual2 = froilan.mount(chick);
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
     public void notRideableTest(){
         Farmer bob = new Farmer();
         Animal chick = new Chicken();
         String actual = bob.mount(chick);
         String expected = "This animal cannot be ridden.";
         Assert.assertEquals(actual,expected);
+    }
+
+
+    @Test
+    public void riderMountTractorTest(){
+        Farmer bob = new Farmer();
+        Tractor tractor = new Tractor();
+        String actual = bob.mount(tractor);
+        String expected = "Successfully mounted!";
+        Assert.assertEquals(actual, expected);
 
     }
+
+
 
 }

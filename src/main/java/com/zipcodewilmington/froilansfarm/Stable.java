@@ -2,17 +2,16 @@ package com.zipcodewilmington.froilansfarm;
 
 import java.util.ArrayList;
 
-public class CropRow extends ArrayList <Crop> {
+public class Stable extends ArrayList<Horse> implements Storage{
 
-//    private int cropRowSize = 0;
+//    private int stableSize = 0;
 //
-//    public int getCropRowSize() {
+//    public int getStabSize() {
 //        return cropRowSize;
 //    }
 //
 //    public void setCropRowSize(int cropRowSize) {
 //        this.cropRowSize = cropRowSize;
 //    }
-
 
 }
